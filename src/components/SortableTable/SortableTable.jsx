@@ -7,7 +7,7 @@ import Stack from "react-bootstrap/Stack";
 import Badge from "react-bootstrap/Badge";
 import Pagination from "react-bootstrap/Pagination";
 
-export const SortableTable = ({ data }) => {
+export const SortableTable = ({ data, tableHeads }) => {
 	const userData = data;
 	console.log(userData);
 	return (
@@ -38,15 +38,9 @@ export const SortableTable = ({ data }) => {
 			<Table striped bordered hover responsive>
 				<thead>
 					<tr>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Start Date</th>
-						<th>Department</th>
-						<th>Date of Birth</th>
-						<th>Street</th>
-						<th>City</th>
-						<th>State</th>
-						<th>Zip Code</th>
+						{tableHeads.map((tableHead, index) => (
+							<th key={`${index}-${tableHead}`}>{tableHead}</th>
+						))}
 					</tr>
 				</thead>
 				<tbody>
