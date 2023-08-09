@@ -1,7 +1,7 @@
 export const data = [
 	{
 		id: 1,
-		firstNname: "Pavia",
+		firstName: "Pavia",
 		lastName: "Bezemer",
 		startDate: "10/08/2011",
 		dateOfBirth: "10/29/1994",
@@ -12,7 +12,7 @@ export const data = [
 	},
 	{
 		id: 2,
-		firstNname: "Glad",
+		firstName: "Glad",
 		lastName: "Alsop",
 		startDate: "11/04/2021",
 		dateOfBirth: "12/01/1968",
@@ -23,7 +23,7 @@ export const data = [
 	},
 	{
 		id: 3,
-		firstNname: "Karyl",
+		firstName: "Karyl",
 		lastName: "Ahearne",
 		startDate: "03/29/2019",
 		dateOfBirth: "03/02/1976",
@@ -34,7 +34,7 @@ export const data = [
 	},
 	{
 		id: 4,
-		firstNname: "Heidi",
+		firstName: "Heidi",
 		lastName: "Kennedy",
 		startDate: "10/10/2015",
 		dateOfBirth: "07/13/1968",
@@ -45,7 +45,7 @@ export const data = [
 	},
 	{
 		id: 5,
-		firstNname: "Marcia",
+		firstName: "Marcia",
 		lastName: "Camilio",
 		startDate: "09/28/2013",
 		dateOfBirth: "12/30/1976",
@@ -56,7 +56,7 @@ export const data = [
 	},
 	{
 		id: 6,
-		firstNname: "Swen",
+		firstName: "Swen",
 		lastName: "Melwall",
 		startDate: "11/09/2010",
 		dateOfBirth: "07/03/1992",
@@ -67,7 +67,7 @@ export const data = [
 	},
 	{
 		id: 7,
-		firstNname: "Rhody",
+		firstName: "Rhody",
 		lastName: "Lardez",
 		startDate: "02/09/2019",
 		dateOfBirth: "10/14/1966",
@@ -78,7 +78,7 @@ export const data = [
 	},
 	{
 		id: 8,
-		firstNname: "Ellwood",
+		firstName: "Ellwood",
 		lastName: "Marchelli",
 		startDate: "06/18/2022",
 		dateOfBirth: "08/20/1960",
@@ -89,7 +89,7 @@ export const data = [
 	},
 	{
 		id: 9,
-		firstNname: "Gloriana",
+		firstName: "Gloriana",
 		lastName: "Cree",
 		startDate: "12/19/2021",
 		dateOfBirth: "05/10/2003",
@@ -100,7 +100,7 @@ export const data = [
 	},
 	{
 		id: 10,
-		firstNname: "Alvan",
+		firstName: "Alvan",
 		lastName: "Chastan",
 		startDate: "02/09/2013",
 		dateOfBirth: "08/30/1987",
@@ -111,7 +111,7 @@ export const data = [
 	},
 	{
 		id: 11,
-		firstNname: "Ware",
+		firstName: "Ware",
 		lastName: "Dodshun",
 		startDate: "02/24/2011",
 		dateOfBirth: "08/09/1989",
@@ -122,7 +122,7 @@ export const data = [
 	},
 	{
 		id: 12,
-		firstNname: "Cory",
+		firstName: "Cory",
 		lastName: "Treuge",
 		startDate: "11/22/2015",
 		dateOfBirth: "07/06/1971",
@@ -133,7 +133,7 @@ export const data = [
 	},
 	{
 		id: 13,
-		firstNname: "Marylee",
+		firstName: "Marylee",
 		lastName: "Gaber",
 		startDate: "07/27/2012",
 		dateOfBirth: "09/06/1975",
@@ -144,7 +144,7 @@ export const data = [
 	},
 	{
 		id: 14,
-		firstNname: "Carmella",
+		firstName: "Carmella",
 		lastName: "Scholtis",
 		startDate: "11/21/2011",
 		dateOfBirth: "12/02/1991",
@@ -155,7 +155,7 @@ export const data = [
 	},
 	{
 		id: 15,
-		firstNname: "Lyn",
+		firstName: "Lyn",
 		lastName: "Reggler",
 		startDate: "06/19/2023",
 		dateOfBirth: "09/09/1972",
@@ -166,7 +166,7 @@ export const data = [
 	},
 	{
 		id: 16,
-		firstNname: "Cristine",
+		firstName: "Cristine",
 		lastName: "Caccavari",
 		startDate: "03/12/2023",
 		dateOfBirth: "10/16/1997",
@@ -177,7 +177,7 @@ export const data = [
 	},
 	{
 		id: 17,
-		firstNname: "Lisbeth",
+		firstName: "Lisbeth",
 		lastName: "Bathurst",
 		startDate: "04/30/2011",
 		dateOfBirth: "05/15/1976",
@@ -188,7 +188,7 @@ export const data = [
 	},
 	{
 		id: 18,
-		firstNname: "Penrod",
+		firstName: "Penrod",
 		lastName: "Cianni",
 		startDate: "04/15/2015",
 		dateOfBirth: "08/19/1984",
@@ -199,7 +199,7 @@ export const data = [
 	},
 	{
 		id: 19,
-		firstNname: "Jacobo",
+		firstName: "Jacobo",
 		lastName: "Whitman",
 		startDate: "07/16/2022",
 		dateOfBirth: "12/30/1977",
@@ -210,7 +210,7 @@ export const data = [
 	},
 	{
 		id: 20,
-		firstNname: "Noella",
+		firstName: "Noella",
 		lastName: "Grooby",
 		startDate: "12/31/2012",
 		dateOfBirth: "05/07/1967",
@@ -221,7 +221,7 @@ export const data = [
 	},
 	{
 		id: 21,
-		firstNname: "Ernestine",
+		firstName: "Ernestine",
 		lastName: "Afield",
 		startDate: "07/17/2015",
 		dateOfBirth: "01/26/1989",
@@ -232,7 +232,7 @@ export const data = [
 	},
 	{
 		id: 22,
-		firstNname: "Ermanno",
+		firstName: "Ermanno",
 		lastName: "Molloy",
 		startDate: "04/26/2012",
 		dateOfBirth: "05/03/1968",
@@ -243,7 +243,7 @@ export const data = [
 	},
 	{
 		id: 23,
-		firstNname: "Zach",
+		firstName: "Zach",
 		lastName: "Ziehms",
 		startDate: "04/21/2017",
 		dateOfBirth: "10/28/1972",
@@ -254,7 +254,7 @@ export const data = [
 	},
 	{
 		id: 24,
-		firstNname: "Hiram",
+		firstName: "Hiram",
 		lastName: "Mc Caughan",
 		startDate: "09/20/2019",
 		dateOfBirth: "06/05/1994",
@@ -265,7 +265,7 @@ export const data = [
 	},
 	{
 		id: 25,
-		firstNname: "Iolande",
+		firstName: "Iolande",
 		lastName: "Creyke",
 		startDate: "10/15/2016",
 		dateOfBirth: "02/14/1977",
@@ -276,7 +276,7 @@ export const data = [
 	},
 	{
 		id: 26,
-		firstNname: "Karlie",
+		firstName: "Karlie",
 		lastName: "Berzen",
 		startDate: "08/17/2016",
 		dateOfBirth: "01/03/1993",
@@ -287,7 +287,7 @@ export const data = [
 	},
 	{
 		id: 27,
-		firstNname: "Dwayne",
+		firstName: "Dwayne",
 		lastName: "Sheerin",
 		startDate: "09/02/2013",
 		dateOfBirth: "10/24/1989",
@@ -298,7 +298,7 @@ export const data = [
 	},
 	{
 		id: 28,
-		firstNname: "Saraann",
+		firstName: "Saraann",
 		lastName: "Du Hamel",
 		startDate: "10/15/2017",
 		dateOfBirth: "11/27/1995",
@@ -309,7 +309,7 @@ export const data = [
 	},
 	{
 		id: 29,
-		firstNname: "Jandy",
+		firstName: "Jandy",
 		lastName: "Gabbett",
 		startDate: "10/05/2015",
 		dateOfBirth: "07/15/1983",
@@ -320,7 +320,7 @@ export const data = [
 	},
 	{
 		id: 30,
-		firstNname: "Gaspar",
+		firstName: "Gaspar",
 		lastName: "Novelli",
 		startDate: "07/08/2017",
 		dateOfBirth: "04/09/1965",
@@ -331,7 +331,7 @@ export const data = [
 	},
 	{
 		id: 31,
-		firstNname: "Taffy",
+		firstName: "Taffy",
 		lastName: "Janowicz",
 		startDate: "09/26/2017",
 		dateOfBirth: "05/04/1969",
@@ -342,7 +342,7 @@ export const data = [
 	},
 	{
 		id: 32,
-		firstNname: "Finn",
+		firstName: "Finn",
 		lastName: "Beals",
 		startDate: "06/07/2017",
 		dateOfBirth: "08/26/1968",
@@ -353,7 +353,7 @@ export const data = [
 	},
 	{
 		id: 33,
-		firstNname: "Abbe",
+		firstName: "Abbe",
 		lastName: "Burgise",
 		startDate: "02/17/2015",
 		dateOfBirth: "09/25/1986",
@@ -364,7 +364,7 @@ export const data = [
 	},
 	{
 		id: 34,
-		firstNname: "Osmond",
+		firstName: "Osmond",
 		lastName: "Hawney",
 		startDate: "11/28/2022",
 		dateOfBirth: "03/13/1966",
@@ -375,7 +375,7 @@ export const data = [
 	},
 	{
 		id: 35,
-		firstNname: "Damita",
+		firstName: "Damita",
 		lastName: "Henrych",
 		startDate: "09/24/2019",
 		dateOfBirth: "10/04/1970",
@@ -386,7 +386,7 @@ export const data = [
 	},
 	{
 		id: 36,
-		firstNname: "Annis",
+		firstName: "Annis",
 		lastName: "Davydkov",
 		startDate: "03/08/2014",
 		dateOfBirth: "04/02/1975",
@@ -397,7 +397,7 @@ export const data = [
 	},
 	{
 		id: 37,
-		firstNname: "Jamima",
+		firstName: "Jamima",
 		lastName: "Bunny",
 		startDate: "12/11/2021",
 		dateOfBirth: "04/23/1963",
@@ -408,7 +408,7 @@ export const data = [
 	},
 	{
 		id: 38,
-		firstNname: "Merrill",
+		firstName: "Merrill",
 		lastName: "Blowes",
 		startDate: "01/13/2018",
 		dateOfBirth: "06/15/1979",
@@ -419,7 +419,7 @@ export const data = [
 	},
 	{
 		id: 39,
-		firstNname: "Elena",
+		firstName: "Elena",
 		lastName: "Boodell",
 		startDate: "09/17/2017",
 		dateOfBirth: "06/14/1983",
@@ -430,7 +430,7 @@ export const data = [
 	},
 	{
 		id: 40,
-		firstNname: "Boris",
+		firstName: "Boris",
 		lastName: "Haslum",
 		startDate: "08/25/2012",
 		dateOfBirth: "12/30/1962",
@@ -441,7 +441,7 @@ export const data = [
 	},
 	{
 		id: 41,
-		firstNname: "Erma",
+		firstName: "Erma",
 		lastName: "Baudain",
 		startDate: "06/18/2015",
 		dateOfBirth: "02/11/1986",
@@ -452,7 +452,7 @@ export const data = [
 	},
 	{
 		id: 42,
-		firstNname: "Joycelin",
+		firstName: "Joycelin",
 		lastName: "Sudell",
 		startDate: "01/12/2022",
 		dateOfBirth: "10/29/2003",
@@ -463,7 +463,7 @@ export const data = [
 	},
 	{
 		id: 43,
-		firstNname: "Gilberto",
+		firstName: "Gilberto",
 		lastName: "Roscrigg",
 		startDate: "11/24/2016",
 		dateOfBirth: "08/28/1982",
@@ -474,7 +474,7 @@ export const data = [
 	},
 	{
 		id: 44,
-		firstNname: "Keelby",
+		firstName: "Keelby",
 		lastName: "Spoerl",
 		startDate: "03/08/2012",
 		dateOfBirth: "11/04/1974",
@@ -485,7 +485,7 @@ export const data = [
 	},
 	{
 		id: 45,
-		firstNname: "Terza",
+		firstName: "Terza",
 		lastName: "Ericssen",
 		startDate: "07/11/2015",
 		dateOfBirth: "01/02/1967",
@@ -496,7 +496,7 @@ export const data = [
 	},
 	{
 		id: 46,
-		firstNname: "Warner",
+		firstName: "Warner",
 		lastName: "Siddall",
 		startDate: "10/17/2020",
 		dateOfBirth: "08/10/1963",
@@ -507,7 +507,7 @@ export const data = [
 	},
 	{
 		id: 47,
-		firstNname: "Brock",
+		firstName: "Brock",
 		lastName: "Vatcher",
 		startDate: "08/19/2015",
 		dateOfBirth: "03/21/1983",
@@ -518,7 +518,7 @@ export const data = [
 	},
 	{
 		id: 48,
-		firstNname: "Amery",
+		firstName: "Amery",
 		lastName: "Mapp",
 		startDate: "10/10/2013",
 		dateOfBirth: "01/30/1962",
@@ -529,7 +529,7 @@ export const data = [
 	},
 	{
 		id: 49,
-		firstNname: "Keeley",
+		firstName: "Keeley",
 		lastName: "Fust",
 		startDate: "06/27/2011",
 		dateOfBirth: "10/02/1977",
@@ -540,7 +540,7 @@ export const data = [
 	},
 	{
 		id: 50,
-		firstNname: "Nerita",
+		firstName: "Nerita",
 		lastName: "Blader",
 		startDate: "07/27/2019",
 		dateOfBirth: "04/22/1973",
@@ -551,7 +551,7 @@ export const data = [
 	},
 	{
 		id: 51,
-		firstNname: "Penrod",
+		firstName: "Penrod",
 		lastName: "Helgass",
 		startDate: "05/02/2016",
 		dateOfBirth: "07/27/1994",
@@ -562,7 +562,7 @@ export const data = [
 	},
 	{
 		id: 52,
-		firstNname: "Mirna",
+		firstName: "Mirna",
 		lastName: "Calveley",
 		startDate: "12/18/2016",
 		dateOfBirth: "04/20/1985",
@@ -573,7 +573,7 @@ export const data = [
 	},
 	{
 		id: 53,
-		firstNname: "Stephannie",
+		firstName: "Stephannie",
 		lastName: "Ferronet",
 		startDate: "12/10/2014",
 		dateOfBirth: "09/07/1969",
@@ -584,7 +584,7 @@ export const data = [
 	},
 	{
 		id: 54,
-		firstNname: "Melvyn",
+		firstName: "Melvyn",
 		lastName: "Biagi",
 		startDate: "10/16/2014",
 		dateOfBirth: "01/31/1986",
@@ -595,7 +595,7 @@ export const data = [
 	},
 	{
 		id: 55,
-		firstNname: "Freddie",
+		firstName: "Freddie",
 		lastName: "Trevaskus",
 		startDate: "04/20/2023",
 		dateOfBirth: "11/03/1980",
@@ -606,7 +606,7 @@ export const data = [
 	},
 	{
 		id: 56,
-		firstNname: "Olin",
+		firstName: "Olin",
 		lastName: "Alday",
 		startDate: "07/26/2013",
 		dateOfBirth: "01/15/1976",
@@ -617,7 +617,7 @@ export const data = [
 	},
 	{
 		id: 57,
-		firstNname: "Jarret",
+		firstName: "Jarret",
 		lastName: "Aizik",
 		startDate: "09/20/2014",
 		dateOfBirth: "01/19/1991",
@@ -628,7 +628,7 @@ export const data = [
 	},
 	{
 		id: 58,
-		firstNname: "Anni",
+		firstName: "Anni",
 		lastName: "Atkirk",
 		startDate: "12/04/2020",
 		dateOfBirth: "08/03/1967",
@@ -639,7 +639,7 @@ export const data = [
 	},
 	{
 		id: 59,
-		firstNname: "Tatiania",
+		firstName: "Tatiania",
 		lastName: "Batisse",
 		startDate: "01/06/2022",
 		dateOfBirth: "11/05/1962",
@@ -650,7 +650,7 @@ export const data = [
 	},
 	{
 		id: 60,
-		firstNname: "Jemie",
+		firstName: "Jemie",
 		lastName: "Crowter",
 		startDate: "09/08/2019",
 		dateOfBirth: "07/11/1969",
@@ -661,7 +661,7 @@ export const data = [
 	},
 	{
 		id: 61,
-		firstNname: "Shellie",
+		firstName: "Shellie",
 		lastName: "Storrock",
 		startDate: "04/21/2018",
 		dateOfBirth: "01/11/1994",
@@ -672,7 +672,7 @@ export const data = [
 	},
 	{
 		id: 62,
-		firstNname: "Lorita",
+		firstName: "Lorita",
 		lastName: "Kelsall",
 		startDate: "02/26/2018",
 		dateOfBirth: "04/15/1983",
@@ -683,7 +683,7 @@ export const data = [
 	},
 	{
 		id: 63,
-		firstNname: "Valerye",
+		firstName: "Valerye",
 		lastName: "Nuttey",
 		startDate: "12/05/2018",
 		dateOfBirth: "03/24/1971",
@@ -694,7 +694,7 @@ export const data = [
 	},
 	{
 		id: 64,
-		firstNname: "Hersch",
+		firstName: "Hersch",
 		lastName: "Bauldrey",
 		startDate: "12/08/2010",
 		dateOfBirth: "09/05/1977",
@@ -705,7 +705,7 @@ export const data = [
 	},
 	{
 		id: 65,
-		firstNname: "Lettie",
+		firstName: "Lettie",
 		lastName: "Oliff",
 		startDate: "10/25/2021",
 		dateOfBirth: "02/01/1987",
@@ -716,7 +716,7 @@ export const data = [
 	},
 	{
 		id: 66,
-		firstNname: "Georgena",
+		firstName: "Georgena",
 		lastName: "Risman",
 		startDate: "07/18/2011",
 		dateOfBirth: "11/16/1978",
@@ -727,7 +727,7 @@ export const data = [
 	},
 	{
 		id: 67,
-		firstNname: "Culver",
+		firstName: "Culver",
 		lastName: "Dorning",
 		startDate: "12/04/2015",
 		dateOfBirth: "12/29/1988",
@@ -738,7 +738,7 @@ export const data = [
 	},
 	{
 		id: 68,
-		firstNname: "Lenette",
+		firstName: "Lenette",
 		lastName: "Gronav",
 		startDate: "01/09/2016",
 		dateOfBirth: "08/17/1975",
@@ -749,7 +749,7 @@ export const data = [
 	},
 	{
 		id: 69,
-		firstNname: "Bret",
+		firstName: "Bret",
 		lastName: "Curneen",
 		startDate: "06/23/2020",
 		dateOfBirth: "12/24/1990",
@@ -760,7 +760,7 @@ export const data = [
 	},
 	{
 		id: 70,
-		firstNname: "Enriqueta",
+		firstName: "Enriqueta",
 		lastName: "Sheers",
 		startDate: "10/30/2015",
 		dateOfBirth: "06/29/1998",
@@ -771,7 +771,7 @@ export const data = [
 	},
 	{
 		id: 71,
-		firstNname: "Carmine",
+		firstName: "Carmine",
 		lastName: "Neising",
 		startDate: "06/05/2023",
 		dateOfBirth: "03/12/1969",
@@ -782,7 +782,7 @@ export const data = [
 	},
 	{
 		id: 72,
-		firstNname: "Berkley",
+		firstName: "Berkley",
 		lastName: "Dalston",
 		startDate: "08/25/2013",
 		dateOfBirth: "12/16/1985",
@@ -793,7 +793,7 @@ export const data = [
 	},
 	{
 		id: 73,
-		firstNname: "Phaidra",
+		firstName: "Phaidra",
 		lastName: "Peaker",
 		startDate: "04/03/2016",
 		dateOfBirth: "12/16/1970",
@@ -804,7 +804,7 @@ export const data = [
 	},
 	{
 		id: 74,
-		firstNname: "Arlena",
+		firstName: "Arlena",
 		lastName: "Marsy",
 		startDate: "06/10/2022",
 		dateOfBirth: "02/03/2002",
@@ -815,7 +815,7 @@ export const data = [
 	},
 	{
 		id: 75,
-		firstNname: "Elmer",
+		firstName: "Elmer",
 		lastName: "Bendall",
 		startDate: "08/08/2016",
 		dateOfBirth: "07/16/1986",
@@ -826,7 +826,7 @@ export const data = [
 	},
 	{
 		id: 76,
-		firstNname: "Mirilla",
+		firstName: "Mirilla",
 		lastName: "Tantum",
 		startDate: "09/12/2017",
 		dateOfBirth: "07/09/1972",
@@ -837,7 +837,7 @@ export const data = [
 	},
 	{
 		id: 77,
-		firstNname: "Broderic",
+		firstName: "Broderic",
 		lastName: "Spearett",
 		startDate: "07/27/2020",
 		dateOfBirth: "05/23/1972",
@@ -848,7 +848,7 @@ export const data = [
 	},
 	{
 		id: 78,
-		firstNname: "Celesta",
+		firstName: "Celesta",
 		lastName: "Emig",
 		startDate: "05/13/2022",
 		dateOfBirth: "02/07/1961",
@@ -859,7 +859,7 @@ export const data = [
 	},
 	{
 		id: 79,
-		firstNname: "Lina",
+		firstName: "Lina",
 		lastName: "Laborde",
 		startDate: "11/04/2020",
 		dateOfBirth: "08/17/1977",
@@ -870,7 +870,7 @@ export const data = [
 	},
 	{
 		id: 80,
-		firstNname: "Sherwood",
+		firstName: "Sherwood",
 		lastName: "Withringten",
 		startDate: "05/08/2019",
 		dateOfBirth: "02/24/1973",
@@ -881,7 +881,7 @@ export const data = [
 	},
 	{
 		id: 81,
-		firstNname: "Rhetta",
+		firstName: "Rhetta",
 		lastName: "Hardison",
 		startDate: "09/03/2015",
 		dateOfBirth: "06/26/1967",
@@ -892,7 +892,7 @@ export const data = [
 	},
 	{
 		id: 82,
-		firstNname: "Derrek",
+		firstName: "Derrek",
 		lastName: "Nani",
 		startDate: "05/07/2013",
 		dateOfBirth: "08/30/2004",
@@ -903,7 +903,7 @@ export const data = [
 	},
 	{
 		id: 83,
-		firstNname: "Dan",
+		firstName: "Dan",
 		lastName: "Ridde",
 		startDate: "01/07/2023",
 		dateOfBirth: "04/11/1980",
@@ -914,7 +914,7 @@ export const data = [
 	},
 	{
 		id: 84,
-		firstNname: "Candi",
+		firstName: "Candi",
 		lastName: "Carrack",
 		startDate: "10/17/2022",
 		dateOfBirth: "08/30/1980",
@@ -925,7 +925,7 @@ export const data = [
 	},
 	{
 		id: 85,
-		firstNname: "Merilyn",
+		firstName: "Merilyn",
 		lastName: "Pennell",
 		startDate: "08/01/2011",
 		dateOfBirth: "04/26/1973",
@@ -936,7 +936,7 @@ export const data = [
 	},
 	{
 		id: 86,
-		firstNname: "Colas",
+		firstName: "Colas",
 		lastName: "Swaite",
 		startDate: "02/13/2014",
 		dateOfBirth: "01/24/1975",
@@ -947,7 +947,7 @@ export const data = [
 	},
 	{
 		id: 87,
-		firstNname: "Millard",
+		firstName: "Millard",
 		lastName: "De la Yglesia",
 		startDate: "04/23/2022",
 		dateOfBirth: "07/18/1981",
@@ -958,7 +958,7 @@ export const data = [
 	},
 	{
 		id: 88,
-		firstNname: "Morley",
+		firstName: "Morley",
 		lastName: "Dallander",
 		startDate: "09/14/2014",
 		dateOfBirth: "11/21/2002",
@@ -969,7 +969,7 @@ export const data = [
 	},
 	{
 		id: 89,
-		firstNname: "Fredek",
+		firstName: "Fredek",
 		lastName: "Tubritt",
 		startDate: "07/14/2021",
 		dateOfBirth: "10/09/1983",
@@ -980,7 +980,7 @@ export const data = [
 	},
 	{
 		id: 90,
-		firstNname: "Gerta",
+		firstName: "Gerta",
 		lastName: "Leithgoe",
 		startDate: "05/26/2013",
 		dateOfBirth: "06/08/1986",
@@ -991,7 +991,7 @@ export const data = [
 	},
 	{
 		id: 91,
-		firstNname: "Carlos",
+		firstName: "Carlos",
 		lastName: "Croster",
 		startDate: "04/15/2012",
 		dateOfBirth: "10/01/1975",
@@ -1002,7 +1002,7 @@ export const data = [
 	},
 	{
 		id: 92,
-		firstNname: "Earvin",
+		firstName: "Earvin",
 		lastName: "Girk",
 		startDate: "01/03/2018",
 		dateOfBirth: "11/05/1963",
@@ -1013,7 +1013,7 @@ export const data = [
 	},
 	{
 		id: 93,
-		firstNname: "Lance",
+		firstName: "Lance",
 		lastName: "Paulin",
 		startDate: "01/16/2013",
 		dateOfBirth: "12/30/1994",
@@ -1024,7 +1024,7 @@ export const data = [
 	},
 	{
 		id: 94,
-		firstNname: "Kippy",
+		firstName: "Kippy",
 		lastName: "Clayworth",
 		startDate: "07/30/2011",
 		dateOfBirth: "06/28/1972",
@@ -1035,7 +1035,7 @@ export const data = [
 	},
 	{
 		id: 95,
-		firstNname: "Stephine",
+		firstName: "Stephine",
 		lastName: "Vamplew",
 		startDate: "02/15/2014",
 		dateOfBirth: "02/19/1992",
@@ -1046,7 +1046,7 @@ export const data = [
 	},
 	{
 		id: 96,
-		firstNname: "Florette",
+		firstName: "Florette",
 		lastName: "Olohan",
 		startDate: "08/03/2013",
 		dateOfBirth: "06/26/1980",
@@ -1057,7 +1057,7 @@ export const data = [
 	},
 	{
 		id: 97,
-		firstNname: "Claudina",
+		firstName: "Claudina",
 		lastName: "Smales",
 		startDate: "12/03/2022",
 		dateOfBirth: "08/29/1964",
@@ -1068,7 +1068,7 @@ export const data = [
 	},
 	{
 		id: 98,
-		firstNname: "Guthrie",
+		firstName: "Guthrie",
 		lastName: "Jealous",
 		startDate: "02/16/2012",
 		dateOfBirth: "03/25/1981",
@@ -1079,7 +1079,7 @@ export const data = [
 	},
 	{
 		id: 99,
-		firstNname: "Jannel",
+		firstName: "Jannel",
 		lastName: "O'Spellissey",
 		startDate: "07/20/2015",
 		dateOfBirth: "03/07/1965",
@@ -1090,7 +1090,7 @@ export const data = [
 	},
 	{
 		id: 100,
-		firstNname: "Felice",
+		firstName: "Felice",
 		lastName: "McKeeman",
 		startDate: "01/15/2016",
 		dateOfBirth: "02/04/1981",

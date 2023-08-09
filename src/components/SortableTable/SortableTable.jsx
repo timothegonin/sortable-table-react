@@ -7,7 +7,9 @@ import Stack from "react-bootstrap/Stack";
 import Badge from "react-bootstrap/Badge";
 import Pagination from "react-bootstrap/Pagination";
 
-export const SortableTable = () => {
+export const SortableTable = ({ data }) => {
+	const userData = data;
+	console.log(userData);
 	return (
 		<Container fluid="md">
 			{/* CONTROLS AND TABLE */}
@@ -48,17 +50,19 @@ export const SortableTable = () => {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>employee firstName</td>
-						<td>employee lastName</td>
-						<td> employee startDate</td>
-						<td>employee department</td>
-						<td>employee dateOfBirth</td>
-						<td>employee street</td>
-						<td>employee city</td>
-						<td>employee state</td>
-						<td>employee zipCode</td>
-					</tr>
+					{data.map((employee) => (
+						<tr key={employee.id}>
+							<td>{employee.firstName}</td>
+							<td>{employee.lastName}</td>
+							<td>{employee.startDate}</td>
+							<td>{employee.department}</td>
+							<td>{employee.dateOfBirth}</td>
+							<td>{employee.street}</td>
+							<td>{employee.city}</td>
+							<td>{employee.state}</td>
+							<td>{employee.zipCode}</td>
+						</tr>
+					))}
 				</tbody>
 			</Table>
 
