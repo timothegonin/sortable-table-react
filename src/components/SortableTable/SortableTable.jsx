@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -9,7 +10,30 @@ import Pagination from "react-bootstrap/Pagination";
 
 export const SortableTable = ({ data, tableHeads }) => {
 	const userData = data;
-	console.log(userData);
+
+	const [sortedData, setSortedData] = useState(data);
+	const [sortConfig, setSortConfig] = useState({
+		key: null,
+		direction: "ascending",
+	});
+
+	const handleSort = (key) => {
+		let direction = "ascending";
+		if (sortConfig.key === key && sortConfig.direction === "ascending") {
+			direction = "descending";
+		}
+
+		const sorted = [...sortedData].sort((a, b) => {
+			const propKey = key.toLowerCase().replace(/ /g, "");
+			if (a[propKey] < b[propKey]) return direction === "ascending" ? -1 : 1;
+			if (a[propKey] > b[propKey]) return direction === "ascending" ? 1 : -1;
+			return 0;
+		});
+
+		setSortedData(sorted);
+		setSortConfig({ key, direction });
+	};
+
 	return (
 		<Container fluid="md">
 			{/* CONTROLS AND TABLE */}
@@ -39,12 +63,29 @@ export const SortableTable = ({ data, tableHeads }) => {
 				<thead>
 					<tr>
 						{tableHeads.map((tableHead, index) => (
-							<th key={`${index}-${tableHead}`}>{tableHead}</th>
+							<th
+								key={`${index}-${tableHead}`}
+								onClick={() => handleSort(tableHead)}
+							>
+								{tableHead}
+							</th>
 						))}
 					</tr>
 				</thead>
 				<tbody>
-					{data.map((employee) => (
+					{sortedData.map((employee) => (
+						<tr key={employee.id}>
+							{tableHeads.map((tableHead, index) => {
+								const propName = tableHead.toLowerCase().replace(/ /g, "");
+								const propValue = employee[propName];
+								console.log(propValue);
+								console.log(propName);
+								return <td key={`${employee.id}-${propName}`}>{propValue}</td>;
+							})}
+						</tr>
+					))}
+
+					{/* {data.map((employee) => (
 						<tr key={employee.id}>
 							<td>{employee.firstName}</td>
 							<td>{employee.lastName}</td>
@@ -56,7 +97,7 @@ export const SortableTable = ({ data, tableHeads }) => {
 							<td>{employee.state}</td>
 							<td>{employee.zipCode}</td>
 						</tr>
-					))}
+					))} */}
 				</tbody>
 			</Table>
 
