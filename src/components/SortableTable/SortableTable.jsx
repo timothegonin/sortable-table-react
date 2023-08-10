@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -16,6 +16,20 @@ export const SortableTable = ({ data, tableHeads }) => {
 		key: null,
 		direction: "ascending",
 	});
+
+	useEffect(() => {
+		const normalizedData = data.map((employee) => {
+			const normalizedEmployee = {};
+			for (const key in employee) {
+				if (employee.hasOwnProperty(key)) {
+					normalizedEmployee[key.toLowerCase()] = employee[key];
+				}
+			}
+			return normalizedEmployee;
+		});
+
+		setSortedData(normalizedData);
+	}, [data]);
 
 	const handleSort = (key) => {
 		let direction = "ascending";
@@ -73,14 +87,13 @@ export const SortableTable = ({ data, tableHeads }) => {
 					</tr>
 				</thead>
 				<tbody>
-					{sortedData.map((employee) => (
-						<tr key={employee.id}>
-							{tableHeads.map((tableHead, index) => {
+					{sortedData.map((employee, index) => (
+						<tr key={index}>
+							{tableHeads.map((tableHead) => {
 								const propName = tableHead.toLowerCase().replace(/ /g, "");
-								const propValue = employee[propName];
-								console.log(propValue);
-								console.log(propName);
-								return <td key={`${employee.id}-${propName}`}>{propValue}</td>;
+								return (
+									<td key={`${index}-${propName}`}>{employee[propName]}</td>
+								);
 							})}
 						</tr>
 					))}
