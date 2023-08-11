@@ -31,6 +31,15 @@ export const SortableTable = ({ data, tableHeads }) => {
 		setSortedData(normalizedData);
 	}, [data]);
 
+	const compareDates = (a, b) => {
+		const dateA = new Date(a);
+		const dateB = new Date(b);
+
+		if (dateA < dateB) return -1;
+		if (dateA > dateB) return 1;
+		return 0;
+	};
+
 	const handleSort = (key) => {
 		let direction = "ascending";
 		if (sortConfig.key === key && sortConfig.direction === "ascending") {
@@ -39,6 +48,13 @@ export const SortableTable = ({ data, tableHeads }) => {
 
 		const sorted = [...sortedData].sort((a, b) => {
 			const propKey = key.toLowerCase().replace(/ /g, "");
+
+			if (propKey === "startdate" || propKey === "dateofbirth") {
+				return direction === "ascending"
+					? compareDates(a[propKey], b[propKey])
+					: compareDates(b[propKey], a[propKey]);
+			}
+
 			if (a[propKey] < b[propKey]) return direction === "ascending" ? -1 : 1;
 			if (a[propKey] > b[propKey]) return direction === "ascending" ? 1 : -1;
 			return 0;
