@@ -7,3 +7,7 @@
 .rotated {
 	transform: rotate(60deg);
 }
+th {
+	overflow: auto;
+	white-space: nowrap;
+}

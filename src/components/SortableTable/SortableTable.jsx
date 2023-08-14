@@ -117,6 +117,7 @@ export const SortableTable = ({ data, tableHeads }) => {
 					<tr>
 						{tableHeads.map((tableHead, index) => (
 							<th
+								className="user-select-none"
 								key={`${index}-${tableHead}`}
 								onClick={() => handleSort(tableHead)}
 								style={getSortButtonStyle(tableHead)}
