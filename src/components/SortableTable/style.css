@@ -1,11 +1,14 @@
+.invisible {
+	visibility: hidden;
+}
 .rotate-icon {
 	display: inline-block;
 	transition: transform 0.15s ease-in-out;
 	cursor: pointer;
 }
-
 .rotated {
-	transform: rotate(60deg);
+	transform: scaleX(-1);
+	/* transform: rotate(360deg); */
 }
 th {
 	overflow: auto;

@@ -80,11 +80,16 @@ export const SortableTable = ({ data, tableHeads }) => {
 					className={`rotate-icon ${iconClasses}`}
 					onClick={() => handleSort(key)}
 				>
-					▼
+					{isAscending ? "▲" : "▼"}
 				</span>
 			);
 		}
-		return "";
+
+		return (
+			<span className={`rotate-icon invisible`} onClick={() => handleSort(key)}>
+				▼
+			</span>
+		);
 	};
 
 	return (
