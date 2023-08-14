@@ -64,6 +64,20 @@ export const SortableTable = ({ data, tableHeads }) => {
 		setSortConfig({ key, direction });
 	};
 
+	const getSortButtonStyle = (key) => {
+		if (sortConfig.key === key) {
+			return { fontWeight: "bold", color: "#007bff", cursor: "pointer" };
+		}
+		return { cursor: "pointer" };
+	};
+
+	const getSortButtonIcon = (key) => {
+		if (sortConfig.key === key) {
+			return sortConfig.direction === "ascending" ? "▲" : "▼";
+		}
+		return "";
+	};
+
 	return (
 		<Container fluid="md">
 			{/* CONTROLS AND TABLE */}
@@ -96,8 +110,9 @@ export const SortableTable = ({ data, tableHeads }) => {
 							<th
 								key={`${index}-${tableHead}`}
 								onClick={() => handleSort(tableHead)}
+								style={getSortButtonStyle(tableHead)}
 							>
-								{tableHead}
+								{tableHead} {getSortButtonIcon(tableHead)}
 							</th>
 						))}
 					</tr>
