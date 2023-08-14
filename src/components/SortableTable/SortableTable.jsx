@@ -7,10 +7,9 @@ import Table from "react-bootstrap/Table";
 import Stack from "react-bootstrap/Stack";
 import Badge from "react-bootstrap/Badge";
 import Pagination from "react-bootstrap/Pagination";
+import "./style.css";
 
 export const SortableTable = ({ data, tableHeads }) => {
-	const userData = data;
-
 	const [sortedData, setSortedData] = useState(data);
 	const [sortConfig, setSortConfig] = useState({
 		key: null,
@@ -73,7 +72,17 @@ export const SortableTable = ({ data, tableHeads }) => {
 
 	const getSortButtonIcon = (key) => {
 		if (sortConfig.key === key) {
-			return sortConfig.direction === "ascending" ? "▲" : "▼";
+			const isAscending = sortConfig.direction === "ascending";
+			const iconClasses = isAscending ? "" : "rotated";
+
+			return (
+				<span
+					className={`rotate-icon ${iconClasses}`}
+					onClick={() => handleSort(key)}
+				>
+					▼
+				</span>
+			);
 		}
 		return "";
 	};
@@ -128,20 +137,6 @@ export const SortableTable = ({ data, tableHeads }) => {
 							})}
 						</tr>
 					))}
-
-					{/* {data.map((employee) => (
-						<tr key={employee.id}>
-							<td>{employee.firstName}</td>
-							<td>{employee.lastName}</td>
-							<td>{employee.startDate}</td>
-							<td>{employee.department}</td>
-							<td>{employee.dateOfBirth}</td>
-							<td>{employee.street}</td>
-							<td>{employee.city}</td>
-							<td>{employee.state}</td>
-							<td>{employee.zipCode}</td>
-						</tr>
-					))} */}
 				</tbody>
 			</Table>
 
