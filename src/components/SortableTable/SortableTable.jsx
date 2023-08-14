@@ -7,10 +7,9 @@ import Table from "react-bootstrap/Table";
 import Stack from "react-bootstrap/Stack";
 import Badge from "react-bootstrap/Badge";
 import Pagination from "react-bootstrap/Pagination";
+import "./style.css";
 
 export const SortableTable = ({ data, tableHeads }) => {
-	const userData = data;
-
 	const [sortedData, setSortedData] = useState(data);
 	const [sortConfig, setSortConfig] = useState({
 		key: null,
@@ -64,6 +63,30 @@ export const SortableTable = ({ data, tableHeads }) => {
 		setSortConfig({ key, direction });
 	};
 
+	const getSortButtonStyle = (key) => {
+		if (sortConfig.key === key) {
+			return { fontWeight: "bold", color: "#007bff", cursor: "pointer" };
+		}
+		return { cursor: "pointer" };
+	};
+
+	const getSortButtonIcon = (key) => {
+		if (sortConfig.key === key) {
+			const isAscending = sortConfig.direction === "ascending";
+			const iconClasses = isAscending ? "" : "rotated";
+
+			return (
+				<span
+					className={`rotate-icon ${iconClasses}`}
+					onClick={() => handleSort(key)}
+				>
+					▼
+				</span>
+			);
+		}
+		return "";
+	};
+
 	return (
 		<Container fluid="md">
 			{/* CONTROLS AND TABLE */}
@@ -96,8 +119,9 @@ export const SortableTable = ({ data, tableHeads }) => {
 							<th
 								key={`${index}-${tableHead}`}
 								onClick={() => handleSort(tableHead)}
+								style={getSortButtonStyle(tableHead)}
 							>
-								{tableHead}
+								{tableHead} {getSortButtonIcon(tableHead)}
 							</th>
 						))}
 					</tr>
@@ -113,20 +137,6 @@ export const SortableTable = ({ data, tableHeads }) => {
 							})}
 						</tr>
 					))}
-
-					{/* {data.map((employee) => (
-						<tr key={employee.id}>
-							<td>{employee.firstName}</td>
-							<td>{employee.lastName}</td>
-							<td>{employee.startDate}</td>
-							<td>{employee.department}</td>
-							<td>{employee.dateOfBirth}</td>
-							<td>{employee.street}</td>
-							<td>{employee.city}</td>
-							<td>{employee.state}</td>
-							<td>{employee.zipCode}</td>
-						</tr>
-					))} */}
 				</tbody>
 			</Table>
 
