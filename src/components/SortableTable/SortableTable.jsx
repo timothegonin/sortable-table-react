@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -7,7 +8,62 @@ import Stack from "react-bootstrap/Stack";
 import Badge from "react-bootstrap/Badge";
 import Pagination from "react-bootstrap/Pagination";
 
-export const SortableTable = () => {
+export const SortableTable = ({ data, tableHeads }) => {
+	const userData = data;
+
+	const [sortedData, setSortedData] = useState(data);
+	const [sortConfig, setSortConfig] = useState({
+		key: null,
+		direction: "ascending",
+	});
+
+	useEffect(() => {
+		const normalizedData = data.map((employee) => {
+			const normalizedEmployee = {};
+			for (const key in employee) {
+				if (employee.hasOwnProperty(key)) {
+					normalizedEmployee[key.toLowerCase()] = employee[key];
+				}
+			}
+			return normalizedEmployee;
+		});
+
+		setSortedData(normalizedData);
+	}, [data]);
+
+	const compareDates = (a, b) => {
+		const dateA = new Date(a);
+		const dateB = new Date(b);
+
+		if (dateA < dateB) return -1;
+		if (dateA > dateB) return 1;
+		return 0;
+	};
+
+	const handleSort = (key) => {
+		let direction = "ascending";
+		if (sortConfig.key === key && sortConfig.direction === "ascending") {
+			direction = "descending";
+		}
+
+		const sorted = [...sortedData].sort((a, b) => {
+			const propKey = key.toLowerCase().replace(/ /g, "");
+
+			if (propKey === "startdate" || propKey === "dateofbirth") {
+				return direction === "ascending"
+					? compareDates(a[propKey], b[propKey])
+					: compareDates(b[propKey], a[propKey]);
+			}
+
+			if (a[propKey] < b[propKey]) return direction === "ascending" ? -1 : 1;
+			if (a[propKey] > b[propKey]) return direction === "ascending" ? 1 : -1;
+			return 0;
+		});
+
+		setSortedData(sorted);
+		setSortConfig({ key, direction });
+	};
+
 	return (
 		<Container fluid="md">
 			{/* CONTROLS AND TABLE */}
@@ -36,29 +92,41 @@ export const SortableTable = () => {
 			<Table striped bordered hover responsive>
 				<thead>
 					<tr>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Start Date</th>
-						<th>Department</th>
-						<th>Date of Birth</th>
-						<th>Street</th>
-						<th>City</th>
-						<th>State</th>
-						<th>Zip Code</th>
+						{tableHeads.map((tableHead, index) => (
+							<th
+								key={`${index}-${tableHead}`}
+								onClick={() => handleSort(tableHead)}
+							>
+								{tableHead}
+							</th>
+						))}
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>employee firstName</td>
-						<td>employee lastName</td>
-						<td> employee startDate</td>
-						<td>employee department</td>
-						<td>employee dateOfBirth</td>
-						<td>employee street</td>
-						<td>employee city</td>
-						<td>employee state</td>
-						<td>employee zipCode</td>
-					</tr>
+					{sortedData.map((employee, index) => (
+						<tr key={index}>
+							{tableHeads.map((tableHead) => {
+								const propName = tableHead.toLowerCase().replace(/ /g, "");
+								return (
+									<td key={`${index}-${propName}`}>{employee[propName]}</td>
+								);
+							})}
+						</tr>
+					))}
+
+					{/* {data.map((employee) => (
+						<tr key={employee.id}>
+							<td>{employee.firstName}</td>
+							<td>{employee.lastName}</td>
+							<td>{employee.startDate}</td>
+							<td>{employee.department}</td>
+							<td>{employee.dateOfBirth}</td>
+							<td>{employee.street}</td>
+							<td>{employee.city}</td>
+							<td>{employee.state}</td>
+							<td>{employee.zipCode}</td>
+						</tr>
+					))} */}
 				</tbody>
 			</Table>
 
