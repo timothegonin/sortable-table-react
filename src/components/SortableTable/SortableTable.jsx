@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -63,4 +64,9 @@ export const SortableTable = ({ data, tableHeads }) => {
 			</Stack>
 		</Container>
 	);
+};
+
+SortableTable.propTypes = {
+	data: PropTypes.arrayOf(PropTypes.object),
+	tableHeads: PropTypes.arrayOf(PropTypes.string),
 };
