@@ -1,6 +1,14 @@
-import { useEffect, useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
+
+/**
+ * TableData component displays a sortable table with data.
+ *
+ * @component
+ * @param {Array} data - The data to display in the table.
+ * @param {Array} tableHeads - The table header titles.
+ * @returns {JSX.Element} - The rendered component.
+ */
 
 export const TableData = ({ data, tableHeads }) => {
 	const [sortedData, setSortedData] = useState(data);
@@ -58,7 +66,11 @@ export const TableData = ({ data, tableHeads }) => {
 
 	const getSortButtonStyle = (key) => {
 		if (sortConfig.key === key) {
-			return { fontWeight: "bold", color: "#007bff", cursor: "pointer" };
+			return {
+				fontWeight: "bold",
+				color: "#007bff",
+				cursor: "pointer",
+			};
 		}
 		return { cursor: "pointer" };
 	};
