@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -9,6 +10,13 @@ import Pagination from "react-bootstrap/Pagination";
 import "./style.css";
 import { TableData } from "../TableData";
 
+/**
+ * Component for displaying a sortable and paginated table with controls.
+ * @param {Object} props - The component props.
+ * @param {Array} props.data - Data to display in the table.
+ * @param {Array} props.tableHeads - Column headers of the table.
+ * @returns {JSX.Element} - JSX element representing the sortable and paginated table.
+ */
 export const SortableTable = ({ data, tableHeads }) => {
 	return (
 		<Container fluid="md">
@@ -35,6 +43,7 @@ export const SortableTable = ({ data, tableHeads }) => {
 				</Row>
 			</Form>
 
+			{/* TableData component to display the sortable table */}
 			<TableData data={data} tableHeads={tableHeads} />
 
 			{/* INFOS + PAGINATION */}
