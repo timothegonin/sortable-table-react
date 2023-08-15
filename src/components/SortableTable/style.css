@@ -1,0 +1,26 @@
+.invisible.rotate-icon {
+	animation: none;
+	opacity: 0;
+}
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+.rotate-icon {
+	display: inline-block;
+	transition: transform 0.15s ease-in-out;
+	animation: fade-in 0.3s ease-in-out;
+	cursor: pointer;
+}
+.rotated {
+	transform: scaleX(-1);
+	/* transform: rotate(360deg); */
+}
+th {
+	overflow: auto;
+	white-space: nowrap;
+}
