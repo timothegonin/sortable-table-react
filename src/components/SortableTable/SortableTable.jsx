@@ -1,92 +1,23 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Table from "react-bootstrap/Table";
 import Stack from "react-bootstrap/Stack";
 import Badge from "react-bootstrap/Badge";
 import Pagination from "react-bootstrap/Pagination";
 import "./style.css";
+import { TableData } from "../TableData";
 
+/**
+ * Component for displaying a sortable and paginated table with controls.
+ * @param {Object} props - The component props.
+ * @param {Array} props.data - Data to display in the table.
+ * @param {Array} props.tableHeads - Column headers of the table.
+ * @returns {JSX.Element} - JSX element representing the sortable and paginated table.
+ */
 export const SortableTable = ({ data, tableHeads }) => {
-	const [sortedData, setSortedData] = useState(data);
-	const [sortConfig, setSortConfig] = useState({
-		key: null,
-		direction: "ascending",
-	});
-
-	useEffect(() => {
-		const normalizedData = data.map((employee) => {
-			const normalizedEmployee = {};
-			for (const key in employee) {
-				if (employee.hasOwnProperty(key)) {
-					normalizedEmployee[key.toLowerCase()] = employee[key];
-				}
-			}
-			return normalizedEmployee;
-		});
-
-		setSortedData(normalizedData);
-	}, [data]);
-
-	const compareDates = (a, b) => {
-		const dateA = new Date(a);
-		const dateB = new Date(b);
-
-		if (dateA < dateB) return -1;
-		if (dateA > dateB) return 1;
-		return 0;
-	};
-
-	const handleSort = (key) => {
-		let direction = "ascending";
-		if (sortConfig.key === key && sortConfig.direction === "ascending") {
-			direction = "descending";
-		}
-
-		const sorted = [...sortedData].sort((a, b) => {
-			const propKey = key.toLowerCase().replace(/ /g, "");
-
-			if (propKey === "startdate" || propKey === "dateofbirth") {
-				return direction === "ascending"
-					? compareDates(a[propKey], b[propKey])
-					: compareDates(b[propKey], a[propKey]);
-			}
-
-			if (a[propKey] < b[propKey]) return direction === "ascending" ? -1 : 1;
-			if (a[propKey] > b[propKey]) return direction === "ascending" ? 1 : -1;
-			return 0;
-		});
-
-		setSortedData(sorted);
-		setSortConfig({ key, direction });
-	};
-
-	const getSortButtonStyle = (key) => {
-		if (sortConfig.key === key) {
-			return { fontWeight: "bold", color: "#007bff", cursor: "pointer" };
-		}
-		return { cursor: "pointer" };
-	};
-
-	const getSortButtonIcon = (key) => {
-		if (sortConfig.key === key) {
-			const isAscending = sortConfig.direction === "ascending";
-			const iconClasses = isAscending ? "" : "rotated";
-
-			return (
-				<span
-					className={`rotate-icon ${iconClasses}`}
-					onClick={() => handleSort(key)}
-				>
-					▼
-				</span>
-			);
-		}
-		return "";
-	};
-
 	return (
 		<Container fluid="md">
 			{/* CONTROLS AND TABLE */}
@@ -111,34 +42,9 @@ export const SortableTable = ({ data, tableHeads }) => {
 					</Col>
 				</Row>
 			</Form>
-			{/* <EmployeesTableView /> */}
-			<Table striped bordered hover responsive>
-				<thead>
-					<tr>
-						{tableHeads.map((tableHead, index) => (
-							<th
-								key={`${index}-${tableHead}`}
-								onClick={() => handleSort(tableHead)}
-								style={getSortButtonStyle(tableHead)}
-							>
-								{tableHead} {getSortButtonIcon(tableHead)}
-							</th>
-						))}
-					</tr>
-				</thead>
-				<tbody>
-					{sortedData.map((employee, index) => (
-						<tr key={index}>
-							{tableHeads.map((tableHead) => {
-								const propName = tableHead.toLowerCase().replace(/ /g, "");
-								return (
-									<td key={`${index}-${propName}`}>{employee[propName]}</td>
-								);
-							})}
-						</tr>
-					))}
-				</tbody>
-			</Table>
+
+			{/* TableData component to display the sortable table */}
+			<TableData data={data} tableHeads={tableHeads} />
 
 			{/* INFOS + PAGINATION */}
 			<Stack
@@ -167,4 +73,9 @@ export const SortableTable = ({ data, tableHeads }) => {
 			</Stack>
 		</Container>
 	);
+};
+
+SortableTable.propTypes = {
+	data: PropTypes.arrayOf(PropTypes.object),
+	tableHeads: PropTypes.arrayOf(PropTypes.string),
 };
