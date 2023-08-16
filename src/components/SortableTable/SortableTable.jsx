@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -18,6 +18,12 @@ import { TableData } from "../TableData";
  * @returns {JSX.Element} - JSX element representing the sortable and paginated table.
  */
 export const SortableTable = ({ data, tableHeads }) => {
+	const [searchTerm, setSearchTerm] = useState("");
+	const handleSearchTerm = (e) => {
+		const value = e.target.value;
+		setSearchTerm(value);
+	};
+
 	return (
 		<Container fluid="md">
 			{/* CONTROLS AND TABLE */}
@@ -38,6 +44,7 @@ export const SortableTable = ({ data, tableHeads }) => {
 							type="search"
 							placeholder="Search"
 							aria-label="Search"
+							onChange={handleSearchTerm}
 						/>
 					</Col>
 				</Row>
