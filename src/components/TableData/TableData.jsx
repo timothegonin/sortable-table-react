@@ -10,7 +10,7 @@ import Table from "react-bootstrap/Table";
  * @returns {JSX.Element} - The rendered component.
  */
 
-export const TableData = ({ data, tableHeads }) => {
+export const TableData = ({ data, tableHeads, searchTerm }) => {
 	const [sortedData, setSortedData] = useState(data);
 	const [sortConfig, setSortConfig] = useState({
 		key: null,
@@ -114,14 +114,24 @@ export const TableData = ({ data, tableHeads }) => {
 				</tr>
 			</thead>
 			<tbody>
-				{sortedData.map((employee, index) => (
-					<tr key={index}>
-						{tableHeads.map((tableHead) => {
-							const propName = tableHead.toLowerCase().replace(/ /g, "");
-							return <td key={`${index}-${propName}`}>{employee[propName]}</td>;
-						})}
-					</tr>
-				))}
+				{sortedData
+					.filter((employee) =>
+						Object.values(employee).some(
+							(value) =>
+								typeof value === "string" &&
+								value.toLowerCase().includes(searchTerm.toLowerCase())
+						)
+					)
+					.map((employee, index) => (
+						<tr key={index}>
+							{tableHeads.map((tableHead) => {
+								const propName = tableHead.toLowerCase().replace(/ /g, "");
+								return (
+									<td key={`${index}-${propName}`}>{employee[propName]}</td>
+								);
+							})}
+						</tr>
+					))}
 			</tbody>
 		</Table>
 	);

@@ -51,7 +51,7 @@ export const SortableTable = ({ data, tableHeads }) => {
 			</Form>
 
 			{/* TableData component to display the sortable table */}
-			<TableData data={data} tableHeads={tableHeads} />
+			<TableData data={data} tableHeads={tableHeads} searchTerm={searchTerm} />
 
 			{/* INFOS + PAGINATION */}
 			<Stack
