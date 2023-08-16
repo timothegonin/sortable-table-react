@@ -124,13 +124,26 @@ export const TableData = ({ data, tableHeads, searchTerm }) => {
 					)
 					.map((employee, index) => (
 						<tr key={index}>
-							{tableHeads.map((tableHead) => (
-								<td key={`${index}-${tableHead}`}>
-									{employee[tableHead.toLowerCase().replace(/ /g, "")]}
-								</td>
-							))}
+							{tableHeads.map((tableHead) => {
+								const propName = tableHead.toLowerCase().replace(/ /g, "");
+								return (
+									<td key={`${index}-${tableHead}`}>{employee[propName]}</td>
+								);
+							})}
 						</tr>
 					))}
+				{sortedData.length > 0 &&
+					sortedData.filter((employee) =>
+						Object.values(employee).some(
+							(value) =>
+								typeof value === "string" &&
+								value.toLowerCase().includes(searchTerm.toLowerCase())
+						)
+					).length === 0 && (
+						<tr>
+							<td colSpan={tableHeads.length}>No match found</td>
+						</tr>
+					)}
 			</tbody>
 		</Table>
 	);
