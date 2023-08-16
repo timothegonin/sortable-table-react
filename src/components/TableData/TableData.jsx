@@ -7,9 +7,9 @@ import Table from "react-bootstrap/Table";
  * @component
  * @param {Array} data - The data to display in the table.
  * @param {Array} tableHeads - The table header titles.
+ * @param {string} searchTerm - The search term to filter the data.
  * @returns {JSX.Element} - The rendered component.
  */
-
 export const TableData = ({ data, tableHeads, searchTerm }) => {
 	const [sortedData, setSortedData] = useState(data);
 	const [sortConfig, setSortConfig] = useState({
@@ -124,12 +124,11 @@ export const TableData = ({ data, tableHeads, searchTerm }) => {
 					)
 					.map((employee, index) => (
 						<tr key={index}>
-							{tableHeads.map((tableHead) => {
-								const propName = tableHead.toLowerCase().replace(/ /g, "");
-								return (
-									<td key={`${index}-${propName}`}>{employee[propName]}</td>
-								);
-							})}
+							{tableHeads.map((tableHead) => (
+								<td key={`${index}-${tableHead}`}>
+									{employee[tableHead.toLowerCase().replace(/ /g, "")]}
+								</td>
+							))}
 						</tr>
 					))}
 			</tbody>
