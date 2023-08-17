@@ -23,6 +23,7 @@ export const SortableTable = ({ data, tableHeads }) => {
 		const value = e.target.value;
 		setSearchTerm(value);
 	};
+	const dataLength = data.length;
 
 	return (
 		<Container fluid="md">
@@ -59,7 +60,9 @@ export const SortableTable = ({ data, tableHeads }) => {
 				gap={3}
 				className="my-3 d-flex flex-column flex-md-row justify-content-md-between"
 			>
-				<Badge bg="primary">Showing 1 to 1 of 1 entries</Badge>
+				<Badge bg="primary">
+					Showing 1 to {dataLength} of {dataLength} entries
+				</Badge>
 				<Pagination size="sm" className="md-ms-auto my-auto">
 					<Pagination.First />
 					<Pagination.Prev />
