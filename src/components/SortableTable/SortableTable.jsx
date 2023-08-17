@@ -19,11 +19,25 @@ import { TableData } from "../TableData";
  */
 export const SortableTable = ({ data, tableHeads }) => {
 	const [searchTerm, setSearchTerm] = useState("");
+	const [visibleDataCount, setVisibleDataCount] = useState(10);
+
 	const handleSearchTerm = (e) => {
 		const value = e.target.value;
 		setSearchTerm(value);
 	};
-	const dataLength = data.length;
+
+	const handleVisibleDataChange = (e) => {
+		const value = parseInt(e.target.value, 10);
+		setVisibleDataCount(value);
+	};
+
+	const filteredData = data.filter((employee) =>
+		Object.values(employee).some(
+			(value) =>
+				typeof value === "string" &&
+				value.toLowerCase().includes(searchTerm.toLowerCase())
+		)
+	);
 
 	return (
 		<Container fluid="md">
@@ -32,7 +46,11 @@ export const SortableTable = ({ data, tableHeads }) => {
 				<Row className="d-flex flex-column-reverse flex-md-row justify-content-between">
 					<Col className="col-8 col-md-4 d-flex align-items-center">
 						Show
-						<Form.Select className="mx-3">
+						<Form.Select
+							className="mx-3"
+							onChange={handleVisibleDataChange}
+							value={visibleDataCount}
+						>
 							<option>10</option>
 							<option>25</option>
 							<option>50</option>
@@ -52,7 +70,11 @@ export const SortableTable = ({ data, tableHeads }) => {
 			</Form>
 
 			{/* TableData component to display the sortable table */}
-			<TableData data={data} tableHeads={tableHeads} searchTerm={searchTerm} />
+			<TableData
+				data={filteredData.slice(0, visibleDataCount)}
+				tableHeads={tableHeads}
+				searchTerm={searchTerm}
+			/>
 
 			{/* INFOS + PAGINATION */}
 			<Stack
@@ -61,7 +83,8 @@ export const SortableTable = ({ data, tableHeads }) => {
 				className="my-3 d-flex flex-column flex-md-row justify-content-md-between"
 			>
 				<Badge bg="primary">
-					Showing 1 to {dataLength} of {dataLength} entries
+					Showing 1 to {Math.min(visibleDataCount, filteredData.length)} of{" "}
+					{filteredData.length} entries
 				</Badge>
 				<Pagination size="sm" className="md-ms-auto my-auto">
 					<Pagination.First />
