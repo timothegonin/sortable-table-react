@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Stack from "react-bootstrap/Stack";
 import Badge from "react-bootstrap/Badge";
 import Pagination from "react-bootstrap/Pagination";
 import "./style.css";
-import { TableData } from "../TableData";
+import { DataTable } from "../DataTable";
+import { DataTableControls } from "../DataTableControls";
 
 /**
  * Component for displaying a sortable and paginated table with controls.
@@ -21,16 +19,6 @@ export const SortableTable = ({ data, tableHeads }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [visibleDataCount, setVisibleDataCount] = useState(10);
 
-	const handleSearchTerm = (e) => {
-		const value = e.target.value;
-		setSearchTerm(value);
-	};
-
-	const handleVisibleDataChange = (e) => {
-		const value = parseInt(e.target.value, 10);
-		setVisibleDataCount(value);
-	};
-
 	const filteredData = data.filter((employee) =>
 		Object.values(employee).some(
 			(value) =>
@@ -41,36 +29,16 @@ export const SortableTable = ({ data, tableHeads }) => {
 
 	return (
 		<Container fluid="md">
-			{/* CONTROLS AND TABLE */}
-			<Form className="w-100 mb-4 ">
-				<Row className="d-flex flex-column-reverse flex-md-row justify-content-between">
-					<Col className="col-8 col-md-4 d-flex align-items-center">
-						Show
-						<Form.Select
-							className="mx-3"
-							onChange={handleVisibleDataChange}
-							value={visibleDataCount}
-						>
-							<option>10</option>
-							<option>25</option>
-							<option>50</option>
-							<option>100</option>
-						</Form.Select>
-						entries
-					</Col>
-					<Col className="col-8 mb-3 mb-md-0 col-md-3">
-						<Form.Control
-							type="search"
-							placeholder="Search"
-							aria-label="Search"
-							onChange={handleSearchTerm}
-						/>
-					</Col>
-				</Row>
-			</Form>
+			{/* DataTableControls component to display the controls of DataTable */}
+			<DataTableControls
+				onVisibleDataChange={setVisibleDataCount}
+				onSearchTermChange={setSearchTerm}
+				visibleDataCount={visibleDataCount}
+				searchTerm={searchTerm}
+			/>
 
-			{/* TableData component to display the sortable table */}
-			<TableData
+			{/* DataTable component to display the sortable table */}
+			<DataTable
 				data={filteredData.slice(0, visibleDataCount)}
 				tableHeads={tableHeads}
 				searchTerm={searchTerm}

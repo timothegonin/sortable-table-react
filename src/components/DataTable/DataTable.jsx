@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 
 /**
- * TableData component displays a sortable table with data.
+ * DataTable component displays a sortable table with data.
  *
  * @component
  * @param {Array} data - The data to display in the table.
@@ -10,7 +10,7 @@ import Table from "react-bootstrap/Table";
  * @param {string} searchTerm - The search term to filter the data.
  * @returns {JSX.Element} - The rendered component.
  */
-export const TableData = ({ data, tableHeads, searchTerm }) => {
+export const DataTable = ({ data, tableHeads, searchTerm }) => {
 	const [sortedData, setSortedData] = useState(data);
 	const [sortConfig, setSortConfig] = useState({
 		key: null,
