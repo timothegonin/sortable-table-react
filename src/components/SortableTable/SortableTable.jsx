@@ -9,6 +9,7 @@ import Badge from "react-bootstrap/Badge";
 import Pagination from "react-bootstrap/Pagination";
 import "./style.css";
 import { TableData } from "../TableData";
+import { DataTableControls } from "../DataTableControls";
 
 /**
  * Component for displaying a sortable and paginated table with controls.
@@ -21,15 +22,15 @@ export const SortableTable = ({ data, tableHeads }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [visibleDataCount, setVisibleDataCount] = useState(10);
 
-	const handleSearchTerm = (e) => {
-		const value = e.target.value;
-		setSearchTerm(value);
-	};
+	// const handleSearchTerm = (e) => {
+	// 	const value = e.target.value;
+	// 	setSearchTerm(value);
+	// };
 
-	const handleVisibleDataChange = (e) => {
-		const value = parseInt(e.target.value, 10);
-		setVisibleDataCount(value);
-	};
+	// const handleVisibleDataChange = (e) => {
+	// 	const value = parseInt(e.target.value, 10);
+	// 	setVisibleDataCount(value);
+	// };
 
 	const filteredData = data.filter((employee) =>
 		Object.values(employee).some(
@@ -42,7 +43,7 @@ export const SortableTable = ({ data, tableHeads }) => {
 	return (
 		<Container fluid="md">
 			{/* CONTROLS AND TABLE */}
-			<Form className="w-100 mb-4 ">
+			{/* <Form className="w-100 mb-4 ">
 				<Row className="d-flex flex-column-reverse flex-md-row justify-content-between">
 					<Col className="col-8 col-md-4 d-flex align-items-center">
 						Show
@@ -67,7 +68,14 @@ export const SortableTable = ({ data, tableHeads }) => {
 						/>
 					</Col>
 				</Row>
-			</Form>
+			</Form> */}
+			{/* DataTableControls component to display the controls of TableData */}
+			<DataTableControls
+				onVisibleDataChange={setVisibleDataCount}
+				onSearchTermChange={setSearchTerm}
+				visibleDataCount={visibleDataCount}
+				searchTerm={searchTerm}
+			/>
 
 			{/* TableData component to display the sortable table */}
 			<TableData
