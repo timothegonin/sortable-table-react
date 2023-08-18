@@ -5,7 +5,7 @@ import Stack from "react-bootstrap/Stack";
 import Badge from "react-bootstrap/Badge";
 import Pagination from "react-bootstrap/Pagination";
 import "./style.css";
-import { TableData } from "../TableData";
+import { DataTable } from "../DataTable";
 import { DataTableControls } from "../DataTableControls";
 
 /**
@@ -29,7 +29,7 @@ export const SortableTable = ({ data, tableHeads }) => {
 
 	return (
 		<Container fluid="md">
-			{/* DataTableControls component to display the controls of TableData */}
+			{/* DataTableControls component to display the controls of DataTable */}
 			<DataTableControls
 				onVisibleDataChange={setVisibleDataCount}
 				onSearchTermChange={setSearchTerm}
@@ -37,8 +37,8 @@ export const SortableTable = ({ data, tableHeads }) => {
 				searchTerm={searchTerm}
 			/>
 
-			{/* TableData component to display the sortable table */}
-			<TableData
+			{/* DataTable component to display the sortable table */}
+			<DataTable
 				data={filteredData.slice(0, visibleDataCount)}
 				tableHeads={tableHeads}
 				searchTerm={searchTerm}
