@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 
 /**
- * TableData component displays a sortable table with data.
+ * DataTable component displays a sortable table with data.
  *
  * @component
  * @param {Array} data - The data to display in the table.
  * @param {Array} tableHeads - The table header titles.
+ * @param {string} searchTerm - The search term to filter the data.
  * @returns {JSX.Element} - The rendered component.
  */
-
-export const TableData = ({ data, tableHeads }) => {
+export const DataTable = ({ data, tableHeads, searchTerm }) => {
 	const [sortedData, setSortedData] = useState(data);
 	const [sortConfig, setSortConfig] = useState({
 		key: null,
@@ -114,14 +114,36 @@ export const TableData = ({ data, tableHeads }) => {
 				</tr>
 			</thead>
 			<tbody>
-				{sortedData.map((employee, index) => (
-					<tr key={index}>
-						{tableHeads.map((tableHead) => {
-							const propName = tableHead.toLowerCase().replace(/ /g, "");
-							return <td key={`${index}-${propName}`}>{employee[propName]}</td>;
-						})}
-					</tr>
-				))}
+				{sortedData
+					.filter((employee) =>
+						Object.values(employee).some(
+							(value) =>
+								typeof value === "string" &&
+								value.toLowerCase().includes(searchTerm.toLowerCase())
+						)
+					)
+					.map((employee, index) => (
+						<tr key={index}>
+							{tableHeads.map((tableHead) => {
+								const propName = tableHead.toLowerCase().replace(/ /g, "");
+								return (
+									<td key={`${index}-${tableHead}`}>{employee[propName]}</td>
+								);
+							})}
+						</tr>
+					))}
+				{sortedData.length > 0 &&
+					sortedData.filter((employee) =>
+						Object.values(employee).some(
+							(value) =>
+								typeof value === "string" &&
+								value.toLowerCase().includes(searchTerm.toLowerCase())
+						)
+					).length === 0 && (
+						<tr>
+							<td colSpan={tableHeads.length}>No match found</td>
+						</tr>
+					)}
 			</tbody>
 		</Table>
 	);
