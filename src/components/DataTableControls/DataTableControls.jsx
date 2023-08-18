@@ -3,6 +3,16 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+/**
+ * Component for displaying controls above the table.
+ * @param {Object} props - The component props.
+ * @param {number} props.visibleDataCount - Number of visible data.
+ * @param {string} props.searchTerm - The search term.
+ * @param {Function} props.onVisibleDataChange - Callback when visible data count changes.
+ * @param {Function} props.onSearchTermChange - Callback when search term changes.
+ * @returns {JSX.Element} - JSX element representing the table controls.
+ */
+
 export const DataTableControls = ({
 	onVisibleDataChange,
 	onSearchTermChange,
