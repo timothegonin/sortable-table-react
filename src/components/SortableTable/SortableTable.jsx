@@ -34,10 +34,19 @@ export const SortableTable = ({ data, tableHeads }) => {
 	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 	const currentData = filteredData.slice(indexOfFirstItem, indexOfLastItem);
 
+	const handleVisibleDataChange = (value) => {
+		setVisibleDataCount(value);
+
+		// Adjust current page when changing items per page
+		if (currentPage > Math.ceil(filteredData.length / value)) {
+			setCurrentPage(Math.ceil(filteredData.length / value));
+		}
+	};
+
 	return (
 		<Container fluid="md">
 			<DataTableControls
-				onVisibleDataChange={setVisibleDataCount}
+				onVisibleDataChange={handleVisibleDataChange}
 				onSearchTermChange={setSearchTerm}
 				visibleDataCount={visibleDataCount}
 				searchTerm={searchTerm}
