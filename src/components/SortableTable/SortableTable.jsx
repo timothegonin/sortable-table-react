@@ -18,6 +18,9 @@ import { DataTableControls } from "../DataTableControls";
 export const SortableTable = ({ data, tableHeads }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [visibleDataCount, setVisibleDataCount] = useState(10);
+	const [currentPage, setCurrentPage] = useState(1);
+
+	const itemsPerPage = visibleDataCount;
 
 	const filteredData = data.filter((employee) =>
 		Object.values(employee).some(
@@ -27,49 +30,71 @@ export const SortableTable = ({ data, tableHeads }) => {
 		)
 	);
 
+	const indexOfLastItem = currentPage * itemsPerPage;
+	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+	const currentData = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+
+	const handleVisibleDataChange = (value) => {
+		setVisibleDataCount(value);
+
+		// Adjust current page when changing items per page
+		if (currentPage > Math.ceil(filteredData.length / value)) {
+			setCurrentPage(Math.ceil(filteredData.length / value));
+		}
+	};
+
 	return (
 		<Container fluid="md">
-			{/* DataTableControls component to display the controls of DataTable */}
 			<DataTableControls
-				onVisibleDataChange={setVisibleDataCount}
+				onVisibleDataChange={handleVisibleDataChange}
 				onSearchTermChange={setSearchTerm}
 				visibleDataCount={visibleDataCount}
 				searchTerm={searchTerm}
 			/>
-
-			{/* DataTable component to display the sortable table */}
 			<DataTable
-				data={filteredData.slice(0, visibleDataCount)}
+				data={currentData}
 				tableHeads={tableHeads}
 				searchTerm={searchTerm}
 			/>
-
-			{/* INFOS + PAGINATION */}
 			<Stack
 				direction="horizontal"
 				gap={3}
 				className="my-3 d-flex flex-column flex-md-row justify-content-md-between"
 			>
 				<Badge bg="primary">
-					Showing 1 to {Math.min(visibleDataCount, filteredData.length)} of{" "}
+					Showing {indexOfFirstItem + 1} to{" "}
+					{Math.min(indexOfLastItem, filteredData.length)} of{" "}
 					{filteredData.length} entries
 				</Badge>
 				<Pagination size="sm" className="md-ms-auto my-auto">
-					<Pagination.First />
-					<Pagination.Prev />
-					<Pagination.Item>{1}</Pagination.Item>
-					<Pagination.Ellipsis />
-
-					<Pagination.Item>{10}</Pagination.Item>
-					<Pagination.Item>{11}</Pagination.Item>
-					<Pagination.Item active>{12}</Pagination.Item>
-					<Pagination.Item>{13}</Pagination.Item>
-					<Pagination.Item disabled>{14}</Pagination.Item>
-
-					<Pagination.Ellipsis />
-					<Pagination.Item>{20}</Pagination.Item>
-					<Pagination.Next />
-					<Pagination.Last />
+					<Pagination.First onClick={() => setCurrentPage(1)} />
+					<Pagination.Prev
+						onClick={() => setCurrentPage((prev) => prev - 1)}
+						disabled={currentPage === 1}
+					/>
+					{Array.from(
+						{ length: Math.ceil(filteredData.length / itemsPerPage) },
+						(_, index) => (
+							<Pagination.Item
+								key={index + 1}
+								active={currentPage === index + 1}
+								onClick={() => setCurrentPage(index + 1)}
+							>
+								{index + 1}
+							</Pagination.Item>
+						)
+					)}
+					<Pagination.Next
+						onClick={() => setCurrentPage((prev) => prev + 1)}
+						disabled={
+							currentPage === Math.ceil(filteredData.length / itemsPerPage)
+						}
+					/>
+					<Pagination.Last
+						onClick={() =>
+							setCurrentPage(Math.ceil(filteredData.length / itemsPerPage))
+						}
+					/>
 				</Pagination>
 			</Stack>
 		</Container>
