@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Container from "react-bootstrap/Container";
 import "./style.css";
@@ -19,14 +19,24 @@ export const SortableTable = ({ data, tableHeads }) => {
 	const [currentPage, setCurrentPage] = useState(1);
 
 	const itemsPerPage = visibleDataCount;
+	const [filteredData, setFilteredData] = useState(data);
 
-	const filteredData = data.filter((employee) =>
-		Object.values(employee).some(
-			(value) =>
-				typeof value === "string" &&
-				value.toLowerCase().includes(searchTerm.toLowerCase())
-		)
-	);
+	useEffect(() => {
+		const filtered = data.filter((employee) =>
+			Object.values(employee).some(
+				(value) =>
+					typeof value === "string" &&
+					value.toLowerCase().includes(searchTerm.toLowerCase())
+			)
+		);
+		setFilteredData(filtered);
+	}, [searchTerm, data]);
+
+	useEffect(() => {
+		if (currentPage > Math.ceil(filteredData.length / itemsPerPage)) {
+			setCurrentPage(Math.ceil(filteredData.length / itemsPerPage));
+		}
+	}, [currentPage, itemsPerPage, filteredData]);
 
 	const indexOfLastItem = currentPage * itemsPerPage;
 	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -34,11 +44,6 @@ export const SortableTable = ({ data, tableHeads }) => {
 
 	const handleVisibleDataChange = (value) => {
 		setVisibleDataCount(value);
-
-		// Adjust current page when changing items per page
-		if (currentPage > Math.ceil(filteredData.length / value)) {
-			setCurrentPage(Math.ceil(filteredData.length / value));
-		}
 	};
 
 	return (
