@@ -26,7 +26,7 @@ export const PaginationControls = ({
 		<Stack
 			direction="horizontal"
 			gap={3}
-			className="my-3 d-flex flex-column flex-md-row justify-content-md-between"
+			className="my-3 d-flex flex-column flex-md-row justify-content-md-between user-select-none"
 		>
 			{/* Display information about the currently shown items */}
 			<Badge bg="primary">
@@ -35,24 +35,15 @@ export const PaginationControls = ({
 				{filteredData.length} entries
 			</Badge>
 			{/* Pagination control */}
-			<Pagination size="sm" className="md-ms-auto my-auto">
+			<Pagination size="sm" className="md-ms-auto my-auto ">
 				<Pagination.First onClick={() => setCurrentPage(1)} />
 				<Pagination.Prev
 					onClick={() => setCurrentPage((prev) => prev - 1)}
 					disabled={currentPage === 1}
 				/>
-				{Array.from(
-					{ length: Math.ceil(filteredData.length / itemsPerPage) },
-					(_, index) => (
-						<Pagination.Item
-							key={index + 1}
-							active={currentPage === index + 1}
-							onClick={() => setCurrentPage(index + 1)}
-						>
-							{index + 1}
-						</Pagination.Item>
-					)
-				)}
+
+				<Pagination.Item active>{currentPage}</Pagination.Item>
+
 				<Pagination.Next
 					onClick={() => setCurrentPage((prev) => prev + 1)}
 					disabled={
