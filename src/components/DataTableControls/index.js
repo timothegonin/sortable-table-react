@@ -1,1 +1,1 @@
-export * from "./DataTableControls";
+export * from "./DataTableControls.jsx";
