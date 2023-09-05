@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import "./style.css";
 import { DataTable } from "../DataTable";
 import { DataTableControls } from "../DataTableControls";
-import { PaginationControls } from "../PaginationControls/PaginationControls";
+import { PaginationControls } from "../PaginationControls";
 
 /**
  * Component for displaying a sortable and paginated table with controls.

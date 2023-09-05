@@ -1,1 +1,1 @@
-export * from "./PaginationControls";
+export * from "./PaginationControls.jsx";
