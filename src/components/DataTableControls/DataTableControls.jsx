@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -60,4 +61,9 @@ export const DataTableControls = ({
 	);
 };
 
-export default DataTableControls;
+DataTableControls.propTypes = {
+	onVisibleDataChange: PropTypes.func.isRequired,
+	onSearchTermChange: PropTypes.func.isRequired,
+	visibleDataCount: PropTypes.number.isRequired,
+	searchTerm: PropTypes.string.isRequired,
+};
