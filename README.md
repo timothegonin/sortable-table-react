@@ -16,3 +16,30 @@ A React component for displaying a sortable and pageable table with controls
 ---
 
 ---
+
+## Prerequisites
+
+**NodeJS :** (v16.15.0 or later)
+**Npm :** (v7.24.0 or later) / **Yarn :** (v1.22.18 or later)
+
+---
+
+---
+
+## Installation
+
+Install with NPM
+
+```bash
+npm install sortable-table-react
+```
+
+Install with YARN
+
+```bash
+yarn add sortable-table-react
+```
+
+---
+
+---
