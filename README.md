@@ -43,3 +43,46 @@ yarn add sortable-table-react
 ---
 
 ---
+
+## Usage/Examples
+
+```javascript
+import { SortableTable } from "sortable-table-react";
+
+const tableHeads = [
+	"First Name",
+	"Last Name",
+	"Start Date",
+	"Department",
+	"Date of Birth",
+	"Street",
+	"City",
+	"State",
+	"Zip Code",
+];
+
+const data = [
+	{
+		id: 1,
+		firstName: "Deirdre",
+		lastName: "Blackaller",
+		department: "Human Resources",
+		startDate: "08/27/2008",
+		dateOfBirth: "11/27/1978",
+		street: "16 Cottonwood Junction",
+		city: "Alpharetta",
+		state: "Georgia",
+		zipCode: "30022",
+	},
+];
+
+const App = () => {
+	return <SortableTable data={data} tableHeads={tableHeads} />;
+};
+
+export default App;
+```
+
+---
+
+---
