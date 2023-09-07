@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import Table from "react-bootstrap/Table";
 
 /**
  * DataTable component displays a sortable table with data.
  *
  * @component
+ * @param {Object} props - The component props.
  * @param {Array} data - The data to display in the table.
  * @param {Array} tableHeads - The table header titles.
  * @param {string} searchTerm - The search term to filter the data.
@@ -147,4 +149,10 @@ export const DataTable = ({ data, tableHeads, searchTerm }) => {
 			</tbody>
 		</Table>
 	);
+};
+
+DataTable.propTypes = {
+	data: PropTypes.arrayOf(PropTypes.object).isRequired,
+	tableHeads: PropTypes.arrayOf(PropTypes.string).isRequired,
+	searchTerm: PropTypes.string.isRequired,
 };
