@@ -70,6 +70,6 @@ export const SortableTable = ({ data, tableHeads }) => {
 };
 
 SortableTable.propTypes = {
-	data: PropTypes.arrayOf(PropTypes.object),
-	tableHeads: PropTypes.arrayOf(PropTypes.string),
+	data: PropTypes.arrayOf(PropTypes.object).isRequired,
+	tableHeads: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

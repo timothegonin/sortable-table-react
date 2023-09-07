@@ -83,6 +83,17 @@ const App = () => {
 export default App;
 ```
 
+#### - Props
+
+| Name       | Type                            | Description                  |
+| ---------- | ------------------------------- | ---------------------------- |
+| data       | **Required** - array of objects | Data to display in the table |
+| tableHeads | **Required** - array of string  | List of table headers        |
+
 ---
 
 ---
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
