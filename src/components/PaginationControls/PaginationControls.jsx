@@ -30,9 +30,12 @@ export const PaginationControls = ({
 		>
 			{/* Display information about the currently shown items */}
 			<Badge bg="primary">
-				Showing {indexOfFirstItem + 1} to{" "}
-				{Math.min(indexOfLastItem, filteredData.length)} of{" "}
-				{filteredData.length} entries
+				{filteredData.length === 0
+					? "Table is empty"
+					: `Showing ${indexOfFirstItem + 1} to ${Math.min(
+							indexOfLastItem,
+							filteredData.length
+					  )} of ${filteredData.length} entries`}
 			</Badge>
 			{/* Pagination control */}
 			<Pagination size="sm" className="md-ms-auto my-auto ">
