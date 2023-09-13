@@ -116,36 +116,30 @@ export const DataTable = ({ data, tableHeads, searchTerm }) => {
 				</tr>
 			</thead>
 			<tbody>
-				{sortedData
-					.filter((employee) =>
-						Object.values(employee).some(
-							(value) =>
-								typeof value === "string" &&
-								value.toLowerCase().includes(searchTerm.toLowerCase())
+				{sortedData.length === 0 ? (
+					<tr>
+						<td colSpan={tableHeads.length}>No match found</td>
+					</tr>
+				) : (
+					sortedData
+						.filter((employee) =>
+							Object.values(employee).some(
+								(value) =>
+									typeof value === "string" &&
+									value.toLowerCase().includes(searchTerm.toLowerCase())
+							)
 						)
-					)
-					.map((employee, index) => (
-						<tr key={index}>
-							{tableHeads.map((tableHead) => {
-								const propName = tableHead.toLowerCase().replace(/ /g, "");
-								return (
-									<td key={`${index}-${tableHead}`}>{employee[propName]}</td>
-								);
-							})}
-						</tr>
-					))}
-				{sortedData.length > 0 &&
-					sortedData.filter((employee) =>
-						Object.values(employee).some(
-							(value) =>
-								typeof value === "string" &&
-								value.toLowerCase().includes(searchTerm.toLowerCase())
-						)
-					).length === 0 && (
-						<tr>
-							<td colSpan={tableHeads.length}>No match found</td>
-						</tr>
-					)}
+						.map((employee, index) => (
+							<tr key={index}>
+								{tableHeads.map((tableHead) => {
+									const propName = tableHead.toLowerCase().replace(/ /g, "");
+									return (
+										<td key={`${index}-${tableHead}`}>{employee[propName]}</td>
+									);
+								})}
+							</tr>
+						))
+				)}
 			</tbody>
 		</Table>
 	);

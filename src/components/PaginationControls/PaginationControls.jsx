@@ -29,14 +29,20 @@ export const PaginationControls = ({
 			className="my-3 d-flex flex-column flex-md-row justify-content-md-between user-select-none"
 		>
 			{/* Display information about the currently shown items */}
-			<Badge bg="primary">
-				Showing {indexOfFirstItem + 1} to{" "}
-				{Math.min(indexOfLastItem, filteredData.length)} of{" "}
-				{filteredData.length} entries
+			<Badge bg="primary" className="p-2">
+				{filteredData.length === 0
+					? "Table is empty"
+					: `Showing ${indexOfFirstItem + 1} to ${Math.min(
+							indexOfLastItem,
+							filteredData.length
+					  )} of ${filteredData.length} entries`}
 			</Badge>
 			{/* Pagination control */}
-			<Pagination size="sm" className="md-ms-auto my-auto ">
-				<Pagination.First onClick={() => setCurrentPage(1)} />
+			<Pagination size="sm" className="md-ms-auto my-auto">
+				<Pagination.First
+					onClick={() => setCurrentPage(1)}
+					disabled={currentPage === 1 || filteredData.length === 0}
+				/>
 				<Pagination.Prev
 					onClick={() => setCurrentPage((prev) => prev - 1)}
 					disabled={currentPage === 1}
@@ -47,12 +53,21 @@ export const PaginationControls = ({
 				<Pagination.Next
 					onClick={() => setCurrentPage((prev) => prev + 1)}
 					disabled={
-						currentPage === Math.ceil(filteredData.length / itemsPerPage)
+						currentPage === Math.ceil(filteredData.length / itemsPerPage) ||
+						filteredData.length === 0
 					}
 				/>
 				<Pagination.Last
-					onClick={() =>
-						setCurrentPage(Math.ceil(filteredData.length / itemsPerPage))
+					onClick={() => {
+						filteredData.length === 0
+							? setCurrentPage(1)
+							: setCurrentPage(Math.ceil(filteredData.length / itemsPerPage));
+					}}
+					disabled={
+						currentPage ===
+						Math.ceil(
+							filteredData.length / itemsPerPage || filteredData.length === 0
+						)
 					}
 				/>
 			</Pagination>
