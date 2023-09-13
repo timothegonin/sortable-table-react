@@ -41,7 +41,7 @@ export const PaginationControls = ({
 			<Pagination size="sm" className="md-ms-auto my-auto">
 				<Pagination.First
 					onClick={() => setCurrentPage(1)}
-					disabled={currentPage === 1}
+					disabled={currentPage === 1 || filteredData.length === 0}
 				/>
 				<Pagination.Prev
 					onClick={() => setCurrentPage((prev) => prev - 1)}
@@ -53,7 +53,8 @@ export const PaginationControls = ({
 				<Pagination.Next
 					onClick={() => setCurrentPage((prev) => prev + 1)}
 					disabled={
-						currentPage === Math.ceil(filteredData.length / itemsPerPage)
+						currentPage === Math.ceil(filteredData.length / itemsPerPage) ||
+						filteredData.length === 0
 					}
 				/>
 				<Pagination.Last
@@ -63,7 +64,10 @@ export const PaginationControls = ({
 							: setCurrentPage(Math.ceil(filteredData.length / itemsPerPage));
 					}}
 					disabled={
-						currentPage === Math.ceil(filteredData.length / itemsPerPage)
+						currentPage ===
+						Math.ceil(
+							filteredData.length / itemsPerPage || filteredData.length === 0
+						)
 					}
 				/>
 			</Pagination>
