@@ -51,9 +51,11 @@ export const PaginationControls = ({
 					}
 				/>
 				<Pagination.Last
-					onClick={() =>
-						setCurrentPage(Math.ceil(filteredData.length / itemsPerPage))
-					}
+					onClick={() => {
+						filteredData.length === 0
+							? setCurrentPage(1)
+							: setCurrentPage(Math.ceil(filteredData.length / itemsPerPage));
+					}}
 				/>
 			</Pagination>
 		</Stack>
