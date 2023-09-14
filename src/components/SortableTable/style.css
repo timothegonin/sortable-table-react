@@ -24,3 +24,7 @@ th {
 	overflow: auto;
 	white-space: nowrap;
 }
+
+input[type="search"]::-webkit-search-cancel-button:hover {
+	cursor: pointer;
+}
