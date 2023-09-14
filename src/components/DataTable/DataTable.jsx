@@ -118,7 +118,12 @@ export const DataTable = ({ data, tableHeads, searchTerm }) => {
 			<tbody>
 				{sortedData.length === 0 ? (
 					<tr>
-						<td colSpan={tableHeads.length}>No match found</td>
+						<td
+							colSpan={tableHeads.length}
+							className="text-center fst-italic py-3"
+						>
+							No match found
+						</td>
 					</tr>
 				) : (
 					sortedData
