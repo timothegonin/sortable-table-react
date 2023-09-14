@@ -39,6 +39,7 @@ export const DataTableControls = ({
 						className="mx-3"
 						onChange={handleVisibleDataChange}
 						value={visibleDataCount}
+						role="button"
 					>
 						<option>10</option>
 						<option>25</option>
