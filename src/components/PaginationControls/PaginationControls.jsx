@@ -53,7 +53,12 @@ export const PaginationControls = ({
 					disabled={currentPage === 1}
 				/>
 
-				<Pagination.Item active>{currentPage}</Pagination.Item>
+				<Pagination.Item
+					active={filteredData.length !== 0 && "true"}
+					disabled={filteredData.length === 0 && "true"}
+				>
+					{currentPage}
+				</Pagination.Item>
 
 				<Pagination.Next
 					onClick={() => setCurrentPage((prev) => prev + 1)}

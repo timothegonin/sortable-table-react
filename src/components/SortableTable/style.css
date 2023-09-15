@@ -18,7 +18,6 @@
 }
 .rotated {
 	transform: scaleX(-1);
-	/* transform: rotate(360deg); */
 }
 th {
 	overflow: auto;
