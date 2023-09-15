@@ -21,6 +21,13 @@ export const PaginationControls = ({
 }) => {
 	const indexOfLastItem = currentPage * itemsPerPage;
 	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+	const badgeText =
+		filteredData.length === 0
+			? "Table is empty"
+			: `Showing ${indexOfFirstItem + 1} to ${Math.min(
+					indexOfLastItem,
+					filteredData.length
+			  )} of ${filteredData.length} entries`;
 
 	return (
 		<Stack
@@ -29,13 +36,11 @@ export const PaginationControls = ({
 			className="my-3 d-flex flex-column flex-md-row justify-content-md-between user-select-none"
 		>
 			{/* Display information about the currently shown items */}
-			<Badge bg="primary" className="p-2">
-				{filteredData.length === 0
-					? "Table is empty"
-					: `Showing ${indexOfFirstItem + 1} to ${Math.min(
-							indexOfLastItem,
-							filteredData.length
-					  )} of ${filteredData.length} entries`}
+			<Badge
+				bg={filteredData.length === 0 ? "secondary" : "primary"}
+				className="p-2"
+			>
+				{badgeText}
 			</Badge>
 			{/* Pagination control */}
 			<Pagination size="sm" className="md-ms-auto my-auto">
@@ -48,7 +53,12 @@ export const PaginationControls = ({
 					disabled={currentPage === 1}
 				/>
 
-				<Pagination.Item active>{currentPage}</Pagination.Item>
+				<Pagination.Item
+					active={filteredData.length !== 0 && "true"}
+					disabled={filteredData.length === 0 && "true"}
+				>
+					{currentPage}
+				</Pagination.Item>
 
 				<Pagination.Next
 					onClick={() => setCurrentPage((prev) => prev + 1)}

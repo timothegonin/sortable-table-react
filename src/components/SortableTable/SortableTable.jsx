@@ -47,6 +47,7 @@ export const SortableTable = ({ data, tableHeads }) => {
 				onSearchTermChange={setSearchTerm}
 				visibleDataCount={visibleDataCount}
 				searchTerm={searchTerm}
+				setCurrentPage={setCurrentPage}
 			/>
 			<DataTable
 				data={currentData}

@@ -19,6 +19,7 @@ export const DataTableControls = ({
 	onSearchTermChange,
 	visibleDataCount,
 	searchTerm,
+	setCurrentPage,
 }) => {
 	const handleVisibleDataChange = (e) => {
 		const value = parseInt(e.target.value, 10);
@@ -26,6 +27,7 @@ export const DataTableControls = ({
 	};
 
 	const handleSearchTermChange = (e) => {
+		setCurrentPage(1);
 		const value = e.target.value;
 		onSearchTermChange(value);
 	};
@@ -39,6 +41,7 @@ export const DataTableControls = ({
 						className="mx-3"
 						onChange={handleVisibleDataChange}
 						value={visibleDataCount}
+						role="button"
 					>
 						<option>10</option>
 						<option>25</option>
