@@ -51,7 +51,10 @@ export const DataTable = ({ data, tableHeads, searchTerm }) => {
 		const sorted = [...sortedData].sort((a, b) => {
 			const propKey = key.toLowerCase().replace(/ /g, "");
 
-			if (propKey === "startdate" || propKey === "dateofbirth") {
+			if (
+				new Date(a[propKey]).toString() !== "Invalid Date" &&
+				new Date(b[propKey]).toString() !== "Invalid Date"
+			) {
 				return direction === "ascending"
 					? compareDates(a[propKey], b[propKey])
 					: compareDates(b[propKey], a[propKey]);
