@@ -1,6 +1,6 @@
 {
 	"name": "sortable-table-react",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "A simple react component that returns a sortable table ",
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
